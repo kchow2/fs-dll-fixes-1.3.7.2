@@ -500,7 +500,7 @@ void fs02Mission::DisplayEvacProgress(){
 }
 
 void fs02Mission::CheckStuffIsAlive(void){
-	if (mission_state <= 12 && (!IsAround(apc_1) || !IsAround(apc_2) || !IsAround(apc_3)) && !MissionFailed){
+	if (mission_state <= 16 && (!IsAround(apc_1) || !IsAround(apc_2) || !IsAround(apc_3)) && !MissionFailed){
 		ClearObjectives();
 		AddObjective(Fail1Text, RED);
 		FailMission(GetTime() + 10, "FS02fail1.des");
