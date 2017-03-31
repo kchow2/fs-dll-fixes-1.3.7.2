@@ -93,8 +93,8 @@ public:
 		i_last;
 
 	char
-		*Orders = "The Swarm is attempting to escape\ntake out those launchers\nwe've dropped navs to help you,\nbe quick, time is short.",
-		*Orders2 = "Well done Commander, now build a\nbase and destroy the\nremaining swarm forces, a\nrecycler is on it's way\nto you.";
+		*Orders = "The Swarm is attempting to escape.\nTake out those launchers.\nWe've dropped navs to help you.\nBe quick, time is short.",
+		*Orders2 = "Well done Commander, now build a\nbase and destroy the\nremaining swarm forces. A\nrecycler is on it's way\nto you.";
 };
 DLLBase * BuildMission(void)
 {

@@ -112,23 +112,23 @@ public:
 		Pilots = { -1079, 2, -1726 },
 		Reinf = { -1262, -14, -1841 };
 
-	char *Brief_1 = "The enemy have launched\na major offensive , many\nof our outposts have been overrun\nand we have lost control\nof the starport.",
-		*Brief_2 = "We are regrouping our\nforces at the central command\ncomplex , we are evacuating all\nnon essential personnel via APC.",
-		*Brief_3 = "Without dropships from the\nstarport we are unable to\nairlift the recycler out ,\nthis means you'll have to\nescort it to safety.",
-		*Orders_1 = "Protect the APC's while\nthey evacuate our troops\nthen escort the recycler back\nto central command.",
-		*PilotsMsg = "Well, done our troops\nhave arrived safely ,\nnow you must escort the\nrecycler through the canyons ,\ngood luck.",
-		*Warning_1 = "Enemy turrets are blocking\n the way ahead , clear\nthem out so we can proceed.",
-		*Turrets = "Well done , the turrets\nhave been eliminated\nwe may continue.",
-		*Force = "A large enemy force\nis blocking the way ahead,\nwe must neutralise them\nbefore we can move on .",
-		*WinText = "well done the recycler\nhas made it through.\nThe rest of the journey\nto central command is,\nclear of enemy forces .",
+	char *Brief_1 = "The enemy have launched\na major offensive. Many\nof our outposts have been overrun\nand we have lost control\nof the starport.",
+		*Brief_2 = "We are regrouping our\nforces at the central command\ncomplex. We are evacuating all\nnon essential personnel via APC.",
+		*Brief_3 = "Without dropships from the\nstarport we are unable to\nairlift the recycler out.\nThis means you'll have to\nescort it to safety.",
+		*Orders_1 = "Protect the APCs while\nthey evacuate our troops\nthen escort the recycler back\nto central command.",
+		*PilotsMsg = "Well done. Our troops\nhave arrived safely.\nNow you must escort the\nrecycler through the canyons.\nGood luck.",
+		*Warning_1 = "Enemy turrets are blocking\n the way ahead. Clear\nthem out so we can proceed.",
+		*Turrets = "Well done. The turrets\nhave been eliminated.\nWe may continue.",
+		*Force = "A large enemy force\nis blocking the way ahead.\nWe must neutralize them\nbefore we can move on .",
+		*WinText = "Well done the recycler\nhas made it through.\nThe rest of the journey\nto central command is\nclear of enemy forces.",
 
 		//Added some new messages that tell you why you failed the mission
-		*Fail1Text = "One of the APCs has been destroyed!",
-		*Fail2Text = "One of the pilots has been killed!",
-		*Fail3Text = "The Recycler has been destroyed!",
-		*Fail4Text = "The Lt has been killed!",
+		*Fail1Text = "One of the APCs has been destroyed.",
+		*Fail2Text = "One of the pilots has been killed.",
+		*Fail3Text = "The Recycler has been destroyed.",
+		*Fail4Text = "The Lt has been killed.",
 		//as well as some progress on the evactuation
-		*ApcAway = "APC %d is away!",
+		*ApcAway = "APC %d is away.",
 		*EvacProgressText = "APC %d has loaded %d of 5 pilots.";
 };
 DLLBase * BuildMission(void)

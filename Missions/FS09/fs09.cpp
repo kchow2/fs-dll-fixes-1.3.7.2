@@ -51,6 +51,10 @@ public:
 		AAGroup2Alive,
 		AAGroup3Alive,
 		AAGroup4Alive,
+		Reinforcements1,
+		Reinforcements2,
+		Reinforcements3,
+		Reinforcements4,
 		b_last;
 
 	// floats
@@ -95,9 +99,9 @@ public:
 		i_last;
 
 	char
-		*Orders1 = "Protect the Recycler convoy as\nit makes it's way through the\njungle. The more swarm AA units\nyou destroy the more dropships\nwe can send in.",
-		*AA1Dead = "Well done you've taken out a\ngroup of AA units , A Dropship\n with reinforcements is on it's\nway down to you.",
-		*AtBase = "Congratulations you made it\nthrough , now establish a base\n and take out the swarm\ninstallation to the\nnorth west.";
+		*Orders1 = "Protect the Recycler convoy as\nit makes its way through the\njungle. The more swarm AA units\nyou destroy, the more dropships\nwe can send in.",
+		*AA1Dead = "Well done, you've taken out a\ngroup of AA units. A Dropship\n with reinforcements is on it's\nway down to you.",
+		*AtBase = "Congratulations, you made it\nthrough. Now establish a base\n and take out the swarm\ninstallation to the\nnorth west.";
 };
 DLLBase * BuildMission(void)
 {
@@ -107,7 +111,15 @@ DLLBase * BuildMission(void)
 void fs09Mission::Setup(void)
 {
 //  bools
-	MissionFailed = false; 
+	MissionFailed = false;
+	AAGroup1Alive = true;
+	AAGroup2Alive = true;
+	AAGroup3Alive = true;
+	AAGroup4Alive = true;
+	Reinforcements1 = false;
+	Reinforcements2 = false;
+	Reinforcements3 = false;
+	Reinforcements4 = false;
 
 //  integers
 	mission_state = 0;
@@ -130,6 +142,16 @@ void fs09Mission::Execute(void)
 		escort2 = GetHandle("escort2");
 		escort3 = GetHandle("escort3");
 		escort4 = GetHandle("escort4");
+		swarmAA1 = GetHandle("swarmAA1");
+		swarmAA2 = GetHandle("swarmAA2");
+		swarmAA3 = GetHandle("swarmAA3");
+		swarmAA4 = GetHandle("swarmAA4");
+		swarmAA5 = GetHandle("swarmAA5");
+		swarmAA6 = GetHandle("swarmAA6");
+		swarmAA7 = GetHandle("swarmAA7");
+		swarmAA8 = GetHandle("swarmAA8");
+		swarmAA9 = GetHandle("swarmAA9");
+		swarmAA10 = GetHandle("swarmAA10");
 		SetScrap(1, 40);
 		Goto(recy, "recpath_1", 1);
 		SetObjectiveOn(recy);	//Added recy beacon on HUD
@@ -333,36 +355,40 @@ void fs09Mission::CheckStuffIsAlive(void){
 }
 
 void fs09Mission::SpawnReinforcements(void){
-	if (!AAGroup1Alive && GetTime() > Reinforcements1Time){
+	if (!AAGroup1Alive && !Reinforcements1 && GetTime() > Reinforcements1Time){
 		reinforce = BuildObject("ivsct_BD", 1, "troops");
 		SetGroup(reinforce, 5);
 		reinforce = BuildObject("ivsct_BD", 1, "troops");
 		SetGroup(reinforce, 5);
 		reinforce = BuildObject("ivserv_BD", 1, "troops");
 		SetGroup(reinforce, 6);
+		Reinforcements1 = true;
 	}
-	if (!AAGroup2Alive && GetTime() > Reinforcements2Time){
+	if (!AAGroup2Alive && !Reinforcements2 && GetTime() > Reinforcements2Time){
 		reinforce = BuildObject("ivserv_BD", 1, "troops");
 		SetGroup(reinforce, 6);
 		reinforce = BuildObject("ivsct_BD", 1, "troops");
 		SetGroup(reinforce, 5);
 		reinforce = BuildObject("ivsct_BD", 1, "troops");
 		SetGroup(reinforce, 5);
+		Reinforcements2 = true;
 	}
-	if (!AAGroup3Alive && GetTime() > Reinforcements3Time){
+	if (!AAGroup3Alive && !Reinforcements3 && GetTime() > Reinforcements3Time){
 		reinforce = BuildObject("ivtnk_BD", 1, "troops");
 		SetGroup(reinforce, 7);
 		reinforce = BuildObject("ivtnk_BD", 1, "troops");
 		SetGroup(reinforce, 7);
 		reinforce = BuildObject("ivtnk_BD", 1, "troops");
 		SetGroup(reinforce, 7);
+		Reinforcements3 = true;
 	}
-	if (!AAGroup4Alive && GetTime() > Reinforcements4Time){
+	if (!AAGroup4Alive && !Reinforcements4 && GetTime() > Reinforcements4Time){
 		reinforce = BuildObject("ivltankBD", 1, "troops");
 		SetGroup(reinforce, 8);
 		reinforce = BuildObject("ivltankBD", 1, "troops");
 		SetGroup(reinforce, 8);
 		reinforce = BuildObject("ivltankBD", 1, "troops");
 		SetGroup(reinforce, 8);
+		Reinforcements4 = true;
 	}
 }

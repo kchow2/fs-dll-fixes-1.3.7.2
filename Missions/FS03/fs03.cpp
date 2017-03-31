@@ -108,12 +108,12 @@ public:
 		i_last;
 
 	char
-		*startxt = "With LT Harker dead\nyou are now incharge\nof the recycler , however\nwe need to upgrade it first\nget those scavs deployed\nwhile you're waiting.",
-		*techtxt = "OK the recycler\nhas now been upgraded\nget it deployed and\nbegin the assualt on\nthe enemy installation\nto the north-west .",
-		*rec1txt = "Excellent work , the enemy\ninstallation has been neutralised\nour forces are now able to\nmove out of the canyon ,\nnow lets retake that StarPort .",
-		*allies = "Commander you better get some\ndefences up here , we've\ngot a large enemy force\nfurther up the canyon , and\nthey're closing fast .",
-		*WinText = "well done you have\ncleared the way\nto the Starport.",
-		*lastorders = "You have eliminated all enemy\nbases in this area, destroy the\nenemy force blocking the way\nto the starport, and\nany extra units that arrive.";
+		*startxt = "With Lt. Harker dead,\nyou are now in charge\nof the recycler. However,\nwe need to upgrade it first.\nGet those scavs deployed\nwhile you're waiting.",
+		*techtxt = "OK the recycler\nhas now been upgraded.\nGet it deployed and\nbegin the assault on\nthe enemy installation\nto the north-west.",
+		*rec1txt = "Excellent work. The enemy\ninstallation has been neutralized and\nour forces are now able to\nmove out of the canyon.\nNow let's retake that StarPort.",
+		*allies = "Commander, you'd better get some\ndefences up here. We've\ngot a large enemy force\nfurther up the canyon, and\nthey're closing fast.",
+		*WinText = "Well done. You have\ncleared the way\nto the Starport.",
+		*lastorders = "You have eliminated all enemy\nbases in this area. Destroy the\nenemy force blocking the way\nto the starport, and\nany extra units that arrive.";
 };
 DLLBase * BuildMission(void)
 {
@@ -126,6 +126,8 @@ void fs03Mission::Setup(void)
 	MissionFailed = false;
 //  integers
 	mission_state = 0;
+
+	PreloadODF("sbrecy_b");
 }
 
 void fs03Mission::AddObject(Handle h)

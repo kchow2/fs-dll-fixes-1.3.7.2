@@ -99,15 +99,15 @@ public:
 		WaveCount,
 		i_last;
 
-	char *msgOrders_1 = "Lt Harker we have\nlost contact with outpost\none. Escort a repair team\nto the outpost, we need \nthat com bunker back online.",
-		*msgOrders_2 = "We're under attack , they're\neverywhere. Protect that repair\nteam at all costs, ensure they\nget safely back to base .",
+	char *msgOrders_1 = "Lt. Harker, we have\nlost contact with outpost\none. Escort a repair team\nto the outpost. We need \nthat com bunker back online.",
+		*msgOrders_2 = "We're under attack. They're\neverywhere. Protect that repair\nteam at all costs. Ensure they\nget safely back to base .",
 		*msgOrders_3 = "Build a scavenger and start making\nsome turrets a large enemy force\nis inbound.",
-		*msgObsevation = "Something is wrong here\nall the trees are dying\nand there's no sign of any\nanimal life at all.",
-		*msgComms = "We've lost comms with base,\nall this dust is screwing things\nup, continue with the mission\nwe'll contact base when we get\nthe bunker online.",
-		*msgOutpost = "What the hell has happened here,\nthe outpost is totally destroyed.\nBaker,Davidson and Mckenzie\ncheck the perimeter for hostiles.",
-		*msgWarning_1 = "Warning :Stay in Formation.",
-		*msgObjective_1 = "Well done , The Repair Team\nhas arrived back safely.",
-		*msgWinText = "Well done You Have Survived\nFor Now !!";
+		*msgObsevation = "Something is wrong here.\nAll the trees are dying\nand there's no sign of any\nanimal life at all.",
+		*msgComms = "We've lost comms with base.\nAll this dust is screwing things\nup. Continue with the mission\nwe'll contact base when we get\nthe bunker online.",
+		*msgOutpost = "What the hell has happened here?\nThe outpost is totally destroyed.\nBaker,Davidson and Mckenzie\ncheck the perimeter for hostiles.",
+		*msgWarning_1 = "Warning: Stay in Formation.",
+		*msgObjective_1 = "Well done. The Repair Team\nhas arrived back safely.",
+		*msgWinText = "Well done. You have survived.\nFor now !!";
 
 	Vector SwarmSP1 = { 1628, 2, 1586 },
 		SwarmSP2 = { -1715, -5, 1532 },
@@ -202,7 +202,7 @@ void fs01Mission::Execute(void)
 		AdvanceIn(10);
 	}
 	STATE(7){
-		for (int i = 0; i < 5; i++){
+		for (int i = 0; i < 6; i++){
 			Handle h = BuildObject("svscL_D", 5, SwarmSP1);
 			Attack(h, RepTeam);
 		}
@@ -252,18 +252,79 @@ void fs01Mission::Execute(void)
 		if (WaveCount >= 5){
 			LastWalk = BuildObject("svwlkL_D", 5, "attackers_2");
 			Goto(LastWalk, MyRecycler);
-			SwarmAttackTimer = GetTime();
-			SwarmAttackState = 0;
-			AdvanceIn(15);
+			Advance();
 		}
 	}
-	STATE(14){
-		SendWaves2();
-		if (SwarmAttackState == 8 && !IsAround(LastWalk)){
-			AdvanceIn(100);
-		}
+	STATE(14){	//LAST_WALK_POS
+		AdvanceIn(15);
 	}
 	STATE(15){
+		Attacker = BuildObject("svscA_D", 5, "attackers_2");
+		Goto(Attacker, MyRecycler, 1);
+		AdvanceIn(2);
+	}
+	STATE(16){
+		Attacker = BuildObject("svscA_D", 5, "attackers_2");
+		Goto(Attacker, MyRecycler, 1);
+		AdvanceIn(2);
+	}
+	STATE(17){
+		Attacker = BuildObject("svscA_D", 5, "attackers_2");
+		Goto(Attacker, MyRecycler, 1);
+		AdvanceIn(2);
+	}
+	STATE(18){
+		Attacker = BuildObject("svscJ_D", 5, "attackers_1");
+		Goto(Attacker, Hangar, 1);
+		AdvanceIn(2);
+	}
+	STATE(19){
+		Attacker = BuildObject("svscJ_D", 5, "attackers_1");
+		Goto(Attacker, Hangar, 1);
+		if (IsAround(GunTow)){
+			AdvanceIn(2);
+		}
+		else if (IsAround(GunTow2)){
+			SetState(23);
+		}
+		else{
+			SetState(25);
+		}
+	}
+	STATE(20){	//ATTACK_TOWER_1
+		Attacker = BuildObject("svscA_D", 5, "attackers_1");
+		Goto(Attacker, GunTow, 1);
+		AdvanceIn(2);
+	}
+	STATE(21){
+		Attacker = BuildObject("svscA_D", 5, "attackers_1");
+		Goto(Attacker, GunTow, 1);
+		if (!IsAround(GunTow2)){
+			SetState(25);
+		}
+		else{
+			Advance();
+		}
+	}
+	STATE(22){	//ATTACK_TOWER_2
+		Attacker = BuildObject("svscA_D", 5, "attackers_2");
+		Goto(Attacker, GunTow2, 1);
+		AdvanceIn(2);
+	}
+	STATE(23){
+		Attacker = BuildObject("svscA_D", 5, "attackers_2");
+		Goto(Attacker, GunTow2, 1);
+		AdvanceIn(2);
+	}
+	STATE(24){	//CHECK_WALK
+		if (!IsAround(LastWalk)){
+			AdvanceIn(100);
+		}
+		else{
+			SetState(14);
+		}
+	}
+	STATE(25){
 		ClearObjectives();
 		AddObjective(msgWinText, GREEN);
 		SucceedMission(GetTime() + 16, "Winner.des");
@@ -321,10 +382,14 @@ void fs01Mission::SwarmAttack(void){
 			SwarmAttackState++;
 			break;
 		case 4:
-		case 5:
 			Attacker = BuildObject("svscJ_D", 5, SwarmSP1);
 			Attack(Attacker, RepTeam);
 			SwarmAttackTimer = GetTime() + 2;
+			SwarmAttackState = 0;
+			break;
+		case 5:
+			Attacker = BuildObject("svscJ_D", 5, SwarmSP1);
+			Attack(Attacker, RepTeam);
 			SwarmAttackState = 0;
 			break;
 		}
@@ -381,7 +446,7 @@ void fs01Mission::SendWaves(void){
 	}
 }
 
-void fs01Mission::SendWaves2(void){
+/*void fs01Mission::SendWaves2(void){
 	if (GetTime() > SwarmAttackTimer){
 		switch (SwarmAttackState){
 		case 0:
@@ -423,4 +488,4 @@ void fs01Mission::SendWaves2(void){
 			break;
 		}
 	}
-}
+}*/

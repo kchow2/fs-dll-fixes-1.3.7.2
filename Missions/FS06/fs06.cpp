@@ -112,13 +112,13 @@ public:
 		i_last;
 
 	char
-		*Orders = "Commander take your team to the\nlanding zone and clear out the\nswarm infestation, secure the\narea before the Phaer-Rhan\ndropships arrive.",
-		*Dropships = "Well done commander the LZ is\nsecure, the Phaer-Rhan will\narrive shortly.",
-		*Canyon = "Dammit, the swarm have gotten\nAA units along the canyon, they\nare tearing the dropships to\npieces, take out those swarm units\nimmediately.",
-		*Crashsite = "well done commander, we are\nrecieving a signal from a crashed\ndropship, go to the crashsite\nand escort the survivors to\nthe landing zone.",
-		*Crashsite2 = "Escort that Phaer-Rhan Overlord\nto the landing zone ,this\nunit is vital , another essential\nunit , the processor has also\njust arrived at the LZ.",
-		*LandingZone = "Well done , now help defend\nthe area while the Phaer_Rhan\nsetup base , make sure that\nprocessor is well protected .",
-		*BaseUp = "Excellent work, the Phaer Rhan\nnow have a factory built\nassist them in their attack on the\nSwarm base to the north.";
+		*Orders = "Commander, take your team to the\nlanding zone and clear out the\nswarm infestation. Secure the\narea before the Phaer-Rhan\ndropships arrive.",
+		*Dropships = "Well done commander. The LZ is\nsecure. The Phaer-Rhan will\narrive shortly.",
+		*Canyon = "Dammit, the swarm have gotten\nAA units along the canyon. They\nare tearing the dropships to\npieces. Take out those swarm units\nimmediately.",
+		*Crashsite = "Well done commander. We are\nreceiving a signal from a crashed\ndropship. Go to the crashsite\nand escort the survivors to\nthe landing zone.",
+		*Crashsite2 = "Escort that Phaer-Rhan Overlord\nto the landing zone. This\nunit is vital. Another essential\nunit, the processor, has also\njust arrived at the LZ.",
+		*LandingZone = "Well done. Now, help defend\nthe area while the Phaer-Rhan\nsetup base. Make sure that\nprocessor is well protected.",
+		*BaseUp = "Excellent work. The Phaer Rhan\nnow have a factory built.\nAssist them in their attack on the\nSwarm base to the north.";
 };
 DLLBase * BuildMission(void)
 {

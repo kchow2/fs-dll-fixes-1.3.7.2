@@ -138,13 +138,13 @@ public:
 		i_last;
 
 	char
-		*Orders1 = "Commander setup base at the nav\nbeacon,prevent the swarm from\nleaving the infested zone.\nDo not enter this zone\nmechana defenses are still active.",
+		*Orders1 = "Commander, setup base at the nav\nbeacon. Prevent the swarm from\nleaving the infested zone.\nDo not enter this zone.\nMechana defenses are still active.",
 		*death1 = "NEAR THE BEACON NOT HALF\nA MILE AWAY,MISSION FAILED",
-		*EDF ="Commander the EDF base to the\neast has been compromised,their\nRecycler is lost,take your\nforces and defend the area\nuntil a replacement arrives.",
-		*NewOrders ="Well done the breach is sealed\nhowever a significant swarm force\nhas broken through find\nand eliminate them,they\nwere last spotted moving north.",
-		*SwarmDead ="The Swarm force has been\ndestroyed.We are picking up\npowerful energy readings from\nthe ruins in this sector\ninvestigate and find the source.",
-		*ProbeMsg ="Commander whatever the hell\nthat thing is, guard it\nwith your life,backup is on\nit's way.",
-		*Orders2 = "We've dropped a nav at the\nlast known position of the\nswarm force,a powerful energy\nsource in the area is\nblocking our scans.";
+		*EDF ="Commander the EDF base to the\neast has been compromised. Their\nRecycler is lost. Take your\nforces and defend the area\nuntil a replacement arrives.",
+		*NewOrders ="Well done, the breach is sealed.\nHowever a significant swarm force\nhas broken through. Find\nand eliminate them. They\nwere last spotted moving north.",
+		*SwarmDead ="The Swarm force has been\ndestroyed. We are picking up\npowerful energy readings from\nthe ruins in this sector.\nInvestigate and find the source.",
+		*ProbeMsg ="Commander, whatever the hell\nthat thing is, guard it\nwith your life. Backup is on\nit's way.",
+		*Orders2 = "We've dropped a nav at the\nlast known position of the\nswarm force. A powerful energy\nsource in the area is\nblocking our scans.";
 };
 DLLBase * BuildMission(void)
 {

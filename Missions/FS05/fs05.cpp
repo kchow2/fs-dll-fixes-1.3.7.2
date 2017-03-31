@@ -97,19 +97,19 @@ public:
 		i_last;
 
 	char
-		*Orders = "Blue Team will scout ahead for\nbiometal pools , we need you to\ndeploy the recycler and start\n setting up a base .",
-		*Pool1 = "This is Blue Team we have a pool\n for you , dropping Nav Beacon.",
-		*Pool2 = "We have another pool for you .",
-		*Pool3 = "Here's another pool , send out\nthe scavs while we search for more.",
-		*Ruins = "we're finding alien ruins, looks\n like they've been empty a long\ntime, we're finding remains of\nmilitary hardware must have been\na battle here.",
-		*Attacked = "Commander some of these defences\nare still operational , we are\nunder attack.",
-		*Attackers = "We have lost contact with team blue\nwe are detecting movement\njust north of their last known\nposition ,attempting to get\na visual of the area.",
-		*Mechana = "We seem to have accidentally\ntriggered some kind of ancient\nplanetary defense system prepare\nfor incoming attackers.",
-		*Snoop = "We need to shut these defence systems\ndown fast, we are picking up some\nstrange transmitions in\nthe area dispatching a snooper\nscout to investigate.",
-		*Snoop2 = "Commander the snooper scout has arrived,\nit will track down and identify\nthe source of the transmitions\nkeep this unit safe at all costs.",
-		*Coms = "Commander we've located the source of\nthe transmitions, it appears to be\nsome kind communications\nrelay, attempting to access the\nnetwork now.",
-		*Hacked = "We've managed to temporarily disable\nthe alien defence systems you have\napprox 30 minutes to take \nout the swarm base before they come\nback online.",
-		*WinText = "Well done commander, the Swarm\noutpost has been erradicated.",
+		*Orders = "Blue Team will scout ahead for\nbiometal pools. We need you to\ndeploy the recycler and start\n setting up a base.",
+		*Pool1 = "This is Blue Team. We have a pool\n for you. Dropping Nav Beacon.",
+		*Pool2 = "We have another pool for you.",
+		*Pool3 = "Here's another pool. Send out\nthe scavs while we search for more.",
+		*Ruins = "We're finding alien ruins. Looks\n like they've been empty a long\ntime. We're finding remains of\nmilitary hardware. Must have been\na battle here.",
+		*Attacked = "Commander some of these defences\nare still operational. We are\nunder attack.",
+		*Attackers = "We have lost contact with team blue.\nWe are detecting movement\njust north of their last known\nposition. Attempting to get\na visual of the area.",
+		*Mechana = "We seem to have accidentally\ntriggered some kind of ancient\nplanetary defense system. Prepare\nfor incoming attackers.",
+		*Snoop = "We need to shut these defence systems\ndown fast. We are picking up some\nstrange transmissions in\nthe area. Dispatching a snooper\nscout to investigate.",
+		*Snoop2 = "Commander the snooper scout has arrived.\nIt will track down and identify\nthe source of the transmissions.\nKeep this unit safe at all costs.",
+		*Coms = "Commander we've located the source of\nthe transmissions. It appears to be\nsome kind communications\nrelay. Attempting to access the\nnetwork now.",
+		*Hacked = "We've managed to temporarily disable\nthe alien defence systems. You have\napprox 30 minutes to take \nout the swarm base before they come\nback online.",
+		*WinText = "Well done commander, the Swarm\noutpost has been eradicated.",
 		*death1 = "DEPLOY NEAR THE BEACON NOT HALF\nA MILE AWAY,MISSION FAILED";
 };
 DLLBase * BuildMission(void)

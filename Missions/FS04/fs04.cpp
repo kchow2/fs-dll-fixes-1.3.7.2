@@ -103,14 +103,14 @@ public:
 		Crabs7 = { 548, 20, 555 };
 
 	char
-		*Orders = "Commander,escort the constructor\nwhile it builds a series of plasma\nbatteries,be careful of unstable\nterrain.",
-		*Scavs = "It appears that the local wildlife\nhas taken a dislike to us,protect\nthose extractors at all costs ",
-		*Const = "The terrain ahead is highly\nunstable guide the constructor\nthrough to nav beacon 3 .",
-		*Const2 = "Well done , one more left to\ngo,guide the constructor to\nnav beacon 4,but be\nquick,the alien fleet is\nalmost upon us. ",
-		*Fleet = "ATTENTION , we are getting reports\nthat the alien fleet is non-hostile\nrepeat,alien fleet is non-hostile,\nabort mission immediately .",
-		*NewOrders = "We don't have much time,we need\nto shut down the plasma batteries,\n you can to do this from\nthe radar tracking station\nhighlighted on your HUD.",
-		*Radar = "It's too late , we don't have time\n to shut the station down manually\nyou'll have to find another way\nto take it offline.",
-		*Win = "Well done you have shutdown the\nradar tracking system in time .";
+		*Orders = "Commander, escort the constructor\nwhile it builds a series of plasma\nbatteries. Be careful of unstable\nterrain.",
+		*Scavs = "It appears that the local wildlife\nhas taken a dislike to us. Protect\nthose extractors at all costs.",
+		*Const = "The terrain ahead is highly\nunstable. Guide the constructor\nthrough to nav beacon 3.",
+		*Const2 = "Well done. One more left to\ngo. Guide the constructor to\nnav beacon 4, but be\nquick. The alien fleet is\nalmost upon us.",
+		*Fleet = "ATTENTION: We are getting reports\nthat the alien fleet is non-hostile.\nRepeat, alien fleet is non-hostile.\nAbort mission immediately.",
+		*NewOrders = "We don't have much time. We need\nto shut down the plasma batteries.\n You can to do this from\nthe radar tracking station\nhighlighted on your HUD.",
+		*Radar = "It's too late. We don't have time\n to shut the station down manually.\nYou'll have to find another way\nto take it offline.",
+		*Win = "Well done. You have shutdown the\nradar tracking system in time.";
 };
 DLLBase * BuildMission(void)
 {
