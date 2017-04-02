@@ -422,7 +422,7 @@ void fs02Mission::Execute(void)
 }
 
 void fs02Mission::EvacuatePilots(void){
-	float delay = PilotCount < 5 ? 10 : PilotCount < 10 ? 8 : 6;
+	float delay = PilotCount < 5 ? 10.0f : PilotCount < 10 ? 8.0f : 6.0f;
 	if (EvacPilotState == 0){
 		TempPilot = BuildObject("ispilo", 1, Pilots);
 		PilotCount++;
