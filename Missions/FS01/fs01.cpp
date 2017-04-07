@@ -50,6 +50,7 @@ public:
 	bool
 		b_first,
 		ConvoyDistanceWarning,
+		MissionFailed,
 		b_last;
 
 	// floats
@@ -123,6 +124,7 @@ void fs01Mission::Setup(void)
 {
 //  bools
 	ConvoyDistanceWarning = false;
+	MissionFailed = false;
   //  floats
 	PrevWarningTime = 0;
 
@@ -330,24 +332,29 @@ void fs01Mission::Execute(void)
 		SucceedMission(GetTime() + 16, "Winner.des");
 		Advance();
 	}
+	CheckStuffIsAlive();
 }
 
 void fs01Mission::CheckStuffIsAlive(void){
 	
-	if (!IsAround(Leader)){
+	if (!IsAround(Leader) && !MissionFailed){
 		FailMission(GetTime() + 10, "failtext.des");
+		MissionFailed = true;
 		SetState(99);
 	}
-	if (mission_state < 11 && !IsAround(RepTeam)){
+	if (mission_state <= 11 && !IsAround(RepTeam) && !MissionFailed){
 		FailMission(GetTime() + 10, "failtext2.des");
+		MissionFailed = true;
 		SetState(99);
 	}
-	if (!IsAround(MyRecycler)){
+	if (!IsAround(MyRecycler) && !MissionFailed){
 		FailMission(GetTime() + 10, "failtext3.des");
+		MissionFailed = true;
 		SetState(99);
 	}
-	if (!IsAround(Hangar)){
+	if (!IsAround(Hangar) && !MissionFailed){
 		FailMission(GetTime() + 10, "failtext.des");
+		MissionFailed = true;
 		SetState(99);
 	}
 }
@@ -445,47 +452,3 @@ void fs01Mission::SendWaves(void){
 		
 	}
 }
-
-/*void fs01Mission::SendWaves2(void){
-	if (GetTime() > SwarmAttackTimer){
-		switch (SwarmAttackState){
-		case 0:
-			SwarmAttackState++;
-			SwarmAttackTimer = GetTime() + 15;
-			break;
-		case 1:
-		case 2:
-			Attacker = BuildObject("svscA_D", 5, "attackers_2");
-			Attack(Attacker, MyRecycler, 1);
-			SwarmAttackState++;
-			SwarmAttackTimer = GetTime() + 2;
-			break;
-		case 3:
-			Attacker = BuildObject("svscA_D", 5, "attackers_2");
-			Goto(Attacker, MyRecycler, 1);
-			SwarmAttackState++;
-			SwarmAttackTimer = GetTime() + 2;
-			break;
-		case 4:
-		case 5:
-			Attacker = BuildObject("svscJ_D", 5, "attackers_1");
-			Goto(Attacker, Hangar, 1);
-			SwarmAttackState++;
-			SwarmAttackTimer = GetTime() + 2;
-			break;
-		case 6:
-		case 7:
-			if (IsAround(GunTow)){
-				Attacker = BuildObject("svscJ_D", 5, "attackers_1");
-				Attack(Attacker, GunTow, 1);
-			}
-			else if (IsAround(GunTow2)){
-				Attacker = BuildObject("svscJ_D", 5, "attackers_1");
-				Attack(Attacker, GunTow2, 1);
-			}
-			SwarmAttackState=0;
-			SwarmAttackTimer = GetTime() + 2;
-			break;
-		}
-	}
-}*/
