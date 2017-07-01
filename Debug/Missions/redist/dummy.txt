@@ -1,0 +1,1 @@
+This directory is required for VS to build in release mode.

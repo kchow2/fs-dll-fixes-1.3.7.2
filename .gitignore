@@ -1,5 +1,7 @@
 *.sln
 *.suo
 *.sdf
-/Debug/Missions/*
+*.opensdf
+*.dll
+*.pdb
 /Missions/**/Build/
